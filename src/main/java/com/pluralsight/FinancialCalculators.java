@@ -52,67 +52,67 @@ public class FinancialCalculators {
         System.out.println("Done!");
     }
 
-        //add mortgagae calculator logic
-        public static void mortgageCalculator() {
+    //add mortgagae calculator logic
+    public static void mortgageCalculator() {
 
         //get user inputs fpr each variable and assign data to variable
 
-            System.out.print("Enter loan principal: ");
+        System.out.print("Enter loan principal: ");
 
-            double principal = Double.parseDouble(myScanner.nextLine());
+        double principal = Double.parseDouble(myScanner.nextLine());
 
-            System.out.print("Enter annual interest rate (%): ");
+        System.out.print("Enter annual interest rate (%): ");
 
-            double annualInterestRate = Double.parseDouble(myScanner.nextLine());
+        double annualInterestRate = Double.parseDouble(myScanner.nextLine());
 
-            System.out.print("Enter loan length in years: ");
+        System.out.print("Enter loan length in years: ");
 
-            int years = Integer.parseInt(myScanner.nextLine());
+        int years = Integer.parseInt(myScanner.nextLine());
 
-            //add calc for interest
-            double monthlyInterestRate = (annualInterestRate / 100) / 12;
-            //add calc for amount payments
-            int numberOfPayments = years * 12;
+        //add calc for interest
+        double monthlyInterestRate = (annualInterestRate / 100) / 12;
+        //add calc for amount payments
+        int numberOfPayments = years * 12;
 
-            //add monthly payment math from parsed variables user entered
-            double monthlyPayment = principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments))
-                            /
-                            (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+        //add monthly payment math from parsed variables user entered
+        double monthlyPayment = principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments))
+                /
+                (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
 
-            //add logic ofr total interest
-            double totalInterest = (monthlyPayment * numberOfPayments) - principal;
+        //add logic ofr total interest
+        double totalInterest = (monthlyPayment * numberOfPayments) - principal;
 
-            //display monthly interest and total interest
-            System.out.printf("\nMonthly Payment: $%.2f%n", monthlyPayment);
-            System.out.printf("Total Interest Paid: $%.2f%n", totalInterest);
-        }
+        //display monthly interest and total interest
+        System.out.printf("\nMonthly Payment: $%.2f%n", monthlyPayment);
+        System.out.printf("Total Interest Paid: $%.2f%n", totalInterest);
+    }
 
 
-// add future value calculations logic
-public static void futureValueCalculator() {
+    // add future value calculations logic
+    public static void futureValueCalculator() {
 
-    //ask user for info necessary to get future value and assign into variable
+        //ask user for info necessary to get future value and assign into variable
 
-    System.out.print("Enter deposit amount: ");
-    double principal = Double.parseDouble(myScanner.nextLine());
+        System.out.print("Enter deposit amount: ");
+        double principal = Double.parseDouble(myScanner.nextLine());
 
-    System.out.print("Enter annual interest rate (%): ");
-    double annualInterestRate = Double.parseDouble(myScanner.nextLine());
+        System.out.print("Enter annual interest rate (%): ");
+        double annualInterestRate = Double.parseDouble(myScanner.nextLine());
 
-    System.out.print("Enter number of years: ");
-    int years = Integer.parseInt(myScanner.nextLine());
+        System.out.print("Enter number of years: ");
+        int years = Integer.parseInt(myScanner.nextLine());
 
-    //add calc for future value
-    double futureValue = principal * Math.pow(1 + ((annualInterestRate / 100) / 365), 365 * years);
-    //add calc for total interest
-    double totalInterest = futureValue - principal;
+        //add calc for future value
+        double futureValue = principal * Math.pow(1 + ((annualInterestRate / 100) / 365), 365 * years);
+        //add calc for total interest
+        double totalInterest = futureValue - principal;
 
-    //print out calculations
-    System.out.printf("\nFuture Value: $%.2f%n", futureValue);
-    System.out.printf("Interest Earned: $%.2f%n", totalInterest);
-}
+        //print out calculations
+        System.out.printf("\nFuture Value: $%.2f%n", futureValue);
+        System.out.printf("Interest Earned: $%.2f%n", totalInterest);
+    }
 
-//add present value calculations logic
+    //add present value calculations logic
     public static void presentValueCalculator() {
 
         //add variables for data user entered
@@ -133,16 +133,11 @@ public static void futureValueCalculator() {
 
         // add calc for present value
         double presentValue = monthlyPayout * (1 - (1 / Math.pow(1 + monthlyInterestRate, totalPayments)))
-                        / monthlyInterestRate;
+                / monthlyInterestRate;
 
         //print out calc for present value
         System.out.printf("\nPresent Value of Annuity: $%.2f%n", presentValue);
 
 
-
-
     }
-
-
-
 }
