@@ -15,7 +15,7 @@ public class FinancialCalculators {
         boolean running = true;
 
         while (running) {
-            System.out.println(" ~~~~~ Mikayla's Financial Calculato r~~~~");
+            System.out.println(" ~~~~~ Mikayla's Financial Calculator~~~~");
             System.out.println("1 - Mortgage Calculator");
             System.out.println("2 - Future Value Calculator");
             System.out.println("3 - Present Value Annuity");
