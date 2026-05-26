@@ -87,7 +87,29 @@ public class FinancialCalculators {
             System.out.printf("Total Interest Paid: $%.2f%n", totalInterest);
         }
 
+
 // add future value calculations logic
+public static void futureValueCalculator() {
+
+        //ask user for info necessary to get future value and assign into variable
+
+    System.out.print("Enter deposit amount: ");
+    double principal = Double.parseDouble(myScanner.nextLine());
+
+    System.out.print("Enter annual interest rate (%): ");
+    double annualInterestRate = Double.parseDouble(myScanner.nextLine());
+
+    System.out.print("Enter number of years: ");
+    int years = Integer.parseInt(myScanner.nextLine());
+
+    //add calc for future value
+    double futureValue = principal * Math.pow( 1 + ((annualInterestRate / 100) / 365), 365 * years);
+    //add calc for total interest
+    double totalInterest = futureValue - principal;
+
+    //print out calculations
+    System.out.printf("\nFuture Value: $%.2f%n", futureValue);
+    System.out.printf("Interest Earned: $%.2f%n", totalInterest);
 
 //add present value calculations logic
 
