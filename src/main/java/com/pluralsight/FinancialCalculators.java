@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class FinancialCalculators {
 
     //add scanners
-    Scanner myScanner = new Scanner(System.in);
+    static Scanner myScanner = new Scanner(System.in);
 
     //add main
     public static void main(String[] args) {
@@ -51,9 +51,45 @@ public class FinancialCalculators {
 
         System.out.println("Done!");
     }
+
+        //add mortgagae calculator logic
+        public static void mortgageCalculator() {
+
+        //get user inputs fpr each variable and assign data to variable
+
+            System.out.print("Enter loan principal: ");
+
+            double principal = Double.parseDouble(myScanner.nextLine());
+
+            System.out.print("Enter annual interest rate (%): ");
+
+            double annualInterestRate = Double.parseDouble(myScanner.nextLine());
+
+            System.out.print("Enter loan length in years: ");
+
+            int years = Integer.parseInt(myScanner.nextLine());
+
+            //add calc for interest
+            double monthlyInterestRate = (annualInterestRate / 100) / 12;
+            //add calc for amount payments
+            int numberOfPayments = years * 12;
+
+            //add monthly payment math from parsed variables user entered
+            double monthlyPayment = principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments))
+                            /
+                            (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+
+            //add logic ofr total interest
+            double totalInterest = (monthlyPayment * numberOfPayments) - principal;
+
+            //display monthly interest and total interest
+            System.out.printf("\nMonthly Payment: $%.2f%n", monthlyPayment);
+            System.out.printf("Total Interest Paid: $%.2f%n", totalInterest);
         }
 
-        //add 
+// add future value calculations logic
+
+//add present value calculations logic
 
 
     }
