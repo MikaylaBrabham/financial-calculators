@@ -91,7 +91,7 @@ public class FinancialCalculators {
 // add future value calculations logic
 public static void futureValueCalculator() {
 
-        //ask user for info necessary to get future value and assign into variable
+    //ask user for info necessary to get future value and assign into variable
 
     System.out.print("Enter deposit amount: ");
     double principal = Double.parseDouble(myScanner.nextLine());
@@ -103,15 +103,40 @@ public static void futureValueCalculator() {
     int years = Integer.parseInt(myScanner.nextLine());
 
     //add calc for future value
-    double futureValue = principal * Math.pow( 1 + ((annualInterestRate / 100) / 365), 365 * years);
+    double futureValue = principal * Math.pow(1 + ((annualInterestRate / 100) / 365), 365 * years);
     //add calc for total interest
     double totalInterest = futureValue - principal;
 
     //print out calculations
     System.out.printf("\nFuture Value: $%.2f%n", futureValue);
     System.out.printf("Interest Earned: $%.2f%n", totalInterest);
+}
 
 //add present value calculations logic
+    public static void presentValueCalculator() {
+
+        //add variables for data user entered
+        System.out.print("Enter monthly payout: ");
+        double monthlyPayout = Double.parseDouble(myScanner.nextLine());
+
+        System.out.print("Enter expected interest rate (%): ");
+        double annualInterestRate = Double.parseDouble(myScanner.nextLine());
+
+        System.out.print("Enter years to payout: ");
+        int years = Integer.parseInt(myScanner.nextLine());
+
+        //add calc for monthly interest
+        double monthlyInterestRate = (annualInterestRate / 100) / 12;
+
+        // add calc for totalpayments
+        int totalPayments = years * 12;
+
+        // add calc for present value
+        double presentValue = monthlyPayout * (1 - (1 / Math.pow(1 + monthlyInterestRate, totalPayments)))
+                        / monthlyInterestRate;
+
+        //print out calc for present value
+        System.out.printf("\nPresent Value of Annuity: $%.2f%n", presentValue);
 
 
 
